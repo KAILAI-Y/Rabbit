@@ -1,7 +1,7 @@
 const express = require('express')
 const { ObjectId } = require('mongodb')
 
-const DB = require('../db.js')
+const DB = require('../utils/db.js')
 const router = express.Router()
 
 router.get('/', async (req, res) => {

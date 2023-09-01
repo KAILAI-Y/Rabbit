@@ -1,13 +1,12 @@
 const express = require('express')
 const { ObjectId } = require('mongodb')
 
-const DB = require('../db.js')
+const DB = require('../utils/db.js')
 const router = express.Router()
 
 router.get('/', async (req, res) => {
   try {
-    const db = await DB.connect()
-    const categories = await db.collection('categories').find({}).toArray()
+    const categories = await DB.get('categories')
     res.json(categories)
   } catch (error) {
     console.error(error)
@@ -17,11 +16,8 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const id = req.params.id
-    const db = await DB.connect()
-    const category = await db.collection('categories').findOne({ 
-     _id: new ObjectId(id)
-    })
+    const _id = req.params.id
+    const category = await DB.get('categories', {_id})
     res.json(category)
   } catch (error) {
     console.error(error)
@@ -32,9 +28,8 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const newProduct = req.body
   try {
-    const db = await DB.connect()
-    const result = await db.collection('categories').insertOne(newProduct)
-    res.json(result)
+    const result = await DB.add('categories', newProduct)
+    res.status(201).json(result)
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Internal server error' })
@@ -43,14 +38,9 @@ router.post('/', async (req, res) => {
 
 router.put("/:id", async (req, res) => {
     try {
-        const id = req.params.id
+        const _id = req.params.id
         const data = req.body
-        const db = await DB.connect()
-        const result = await db.collection('categories').findOneAndUpdate(
-            { _id: new ObjectId(id) },
-            { $set: data },
-            { returnDocument: 'after' }
-        )
+        const result = await DB.update('categories', {_id, ...data})
         res.json(result)
     } catch (error) {
         console.error(error);
@@ -60,11 +50,8 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     try {
-        const id = req.params.id
-        const db = await DB.connect()
-        const result = await db.collection('categories').deleteOne(
-            { _id: new ObjectId(id) }
-        )
+        const _id = req.params.id
+        const result = await DB.del('categories', {_id})
         res.json(result)
     } catch (error) {
         console.error(error);
