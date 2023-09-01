@@ -1,0 +1,32 @@
+.goods_list {
+    display: flex;
+    justify-content: space-between;
+    height: 426px;
+}
+
+.goods_list li {
+    width: 306px;
+    height: 406px;
+    transition: all 0.5s;
+}
+
+.goods_list li:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 3px 8px #000;
+}
+
+.goods_list li img {
+    width: 306px;
+    height: 306px;
+}
+
+.goods_list li p {
+    font-size: 22px;
+    padding-top: 12px;
+    text-align: center;
+}
+
+.goods_list li .desc {
+    color: #999;
+    font-size: 18px;
+}

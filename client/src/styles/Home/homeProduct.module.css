@@ -1,0 +1,124 @@
+.home_product {
+    background: #fff;
+    margin-top: 20px;
+}
+
+.home_product .sub {
+    margin-bottom: 2px;
+}
+
+.home_product .sub a {
+    padding: 2px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.home_product .sub a:hover {
+    background: #27ba9b;
+    color: #fff;
+}
+
+.home_product .sub a:last-child {
+    margin-right: 80px;
+}
+
+.home_product .box {
+    display: flex;
+}
+
+.home_product .box .cover {
+    width: 240px;
+    height: 610px;
+    margin-right: 10px;
+    position: relative;
+}
+
+.home_product .box .cover img {
+    width: 100%;
+    height: 100%;
+}
+
+.home_product .box .cover .label {
+    width: 188px;
+    height: 66px;
+    display: flex;
+    font-size: 18px;
+    color: #fff;
+    line-height: 66px;
+    font-weight: normal;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+}
+
+.home_product .box .cover .label span {
+    text-align: center;
+}
+
+.home_product .box .cover .label span:first-child {
+    width: 76px;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.home_product .box .cover .label span:last-child {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.home_product .box .goods_list {
+    width: 990px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.home_product .box .goods_list li {
+    width: 240px;
+    height: 300px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.home_product .box .goods_list li:nth-last-child(-n + 4) {
+    margin-bottom: 0;
+}
+
+.home_product .box .goods_list li:nth-child(4n) {
+    margin-right: 0;
+}
+
+.home_product .box .goods_item {
+    display: block;
+    width: 220px;
+    padding: 20px 30px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.home_product .box .goods_item:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 3px 8px #000;
+}
+
+.home_product .box .goods_item img {
+    width: 160px;
+    height: 160px;
+}
+
+.home_product .box .goods_item p {
+    padding-top: 10px;
+}
+
+.home_product .box .goods_item .name {
+    font-size: 16px;
+}
+
+.home_product .box .goods_item .desc {
+    color: #999;
+    height: 29px;
+}
+
+.home_product .box .goods_item .price {
+    color: #cf4444;
+    font-size: 20px;
+}

@@ -1,0 +1,100 @@
+.app_header {
+    background: #fff;
+}
+
+.app_header .container {
+    display: flex;
+    align-items: center;
+}
+
+.app_header .logo {
+    width: 200px;
+}
+
+.app_header .logo a {
+    display: block;
+    height: 132px;
+    width: 100%;
+    text-indent: -9999px;
+    background: url('/public/assets/images/logo.png') no-repeat center 18px / contain;
+}
+
+.app_header .app_header_nav {
+    width: 820px;
+    display: flex;
+    padding-left: 40px;
+    position: relative;
+    z-index: 998;
+}
+
+.app_header .app_header_nav li {
+    margin-right: 40px;
+    width: 38px;
+    text-align: center;
+}
+
+.app_header .app_header_nav li a {
+    font-size: 16px;
+    line-height: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
+.app_header .app_header_nav li a:hover {
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}
+
+.app_header .app_header_nav li .active {
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}
+
+.app_header .search {
+    width: 170px;
+    /* height: 32px; */
+    position: relative;
+    border-bottom: 1px solid #e7e7e7;
+    line-height: 32px;
+}
+
+.app_header .search .icon_search {
+    font-size: 18px;
+    margin-left: 5px;
+}
+
+.app_header .search input {
+    width: 140px;
+    padding-left: 5px;
+    color: #666;
+}
+
+.app_header .cart {
+    width: 50px;
+}
+
+.app_header .cart .curr {
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    position: relative;
+    display: block;
+}
+
+.app_header .cart .curr .icon_cart {
+    font-size: 22px;
+}
+
+.app_header .cart .curr em {
+    font-style: normal;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 1px 6px;
+    line-height: 1;
+    background: #e26237;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 10px;
+    font-family: Arial;
+}

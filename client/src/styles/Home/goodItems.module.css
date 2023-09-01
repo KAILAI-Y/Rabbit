@@ -1,0 +1,35 @@
+.goods_item {
+    display: block;
+    width: 220px;
+    padding: 20px 30px;
+    text-align: center;
+    transition: all 0.5s;
+}
+
+.goods_item:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 3px 8px #000;
+}
+
+.goods_item img {
+    width: 160px;
+    height: 160px;
+}
+
+.goods_item p {
+    padding-top: 10px;
+}
+
+.goods_item .name {
+    font-size: 16px;
+}
+
+.goods_item .desc {
+    color: #999;
+    height: 29px;
+}
+
+.goods_item .price {
+    color: #cf4444;
+    font-size: 20px;
+}

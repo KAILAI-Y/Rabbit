@@ -1,0 +1,35 @@
+.goods_list {
+    display: flex;
+    justify-content: space-between;
+    height: 406px;
+}
+
+.goods_list li {
+    width: 306px;
+    height: 406px;
+    background: #f0f9f4;
+    transition: all 0.5s;
+}
+
+.goods_list li:hover {
+    transform: translate3d(0, -3px, 0);
+    box-shadow: 0 3px 8px #000;
+}
+
+.goods_list li img {
+    width: 306px;
+    height: 306px;
+}
+
+.goods_list li p {
+    font-size: 22px;
+    padding-top: 12px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.goods_list li .price {
+    color: #cf4444;
+}

@@ -1,0 +1,84 @@
+.app_header_sticky {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: #fff;
+    border-bottom: 1px solid #e4e4e4;
+    opacity: 0;
+    transition: all 0.3s linear, opacity 0.3s linear;
+}
+
+.app_header_sticky.show {
+    opacity: 1;
+    transform: none;
+}
+
+.app_header_sticky .container {
+    display: flex;
+    align-items: center;
+}
+
+.app_header_sticky .logo {
+    width: 200px;
+    height: 80px;
+    background: url("/public/assets/images/logo.png") no-repeat right 2px;
+    background-size: 160px auto;
+}
+
+.app_header_sticky .logo .hide_text {
+    font-size: 0;
+    text-indent: -1000px;
+}
+
+.app_header_sticky .right {
+    width: 220px;
+    display: flex;
+    text-align: center;
+    padding-left: 40px;
+    border-left: 2px solid #27ba9b;
+}
+
+.app_header_sticky .right a {
+    width: 38px;
+    margin-right: 40px;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.app_header_sticky .right a:hover {
+    color: #27ba9b;
+}
+
+.app_header_nav {
+    width: 820px;
+    display: flex;
+    padding-left: 40px;
+    position: relative;
+    z-index: 998;
+}
+
+.app_header_nav li {
+    margin-right: 40px;
+    width: 38px;
+    text-align: center;
+}
+
+.app_header_nav li a {
+    font-size: 16px;
+    line-height: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
+.app_header_nav li a:hover {
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}
+
+.app_header_nav li .active {
+    color: #27ba9b;
+    border-bottom: 1px solid #27ba9b;
+}

@@ -1,0 +1,31 @@
+.app_topnav {
+    background: #333;
+}
+
+.app_topnav ul {
+    display: flex;
+    height: 53px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.app_topnav li span {
+    padding: 0 15px;
+    color: #cdcdcd;
+    line-height: 1;
+    display: inline-block;
+}
+
+.app_topnav li span i {
+    font-size: 14px;
+    margin-right: 2px;
+}
+
+.app_topnav li span:hover {
+    color: #27ba9b;
+    /* You need to define this color variable */
+}
+
+.app_topnav li~li span {
+    border-left: 2px solid #666;
+}
