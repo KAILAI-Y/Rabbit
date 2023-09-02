@@ -7,7 +7,7 @@ function HomeCategory() {
   const [categoryList, setCategoryList] = useState([]);
 
   useEffect(() => {
-    Category.get().then(data => {
+    Category.getList().then(data => {
       setCategoryList(data);
     }); 
   }, [])

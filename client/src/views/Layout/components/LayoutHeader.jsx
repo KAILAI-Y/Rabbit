@@ -7,7 +7,7 @@ function LayoutHeader() {
   const [categoryList, setCategoryList] = useState([]);
 
   useEffect(() => {
-    Category.get().then(data => {
+    Category.getList().then(data => {
       setCategoryList(data);
     }); 
 
@@ -22,7 +22,7 @@ function LayoutHeader() {
         <ul className={styles.app_header_nav}>
           {categoryList && categoryList.map((item) => (
             <li className={styles.home} key={item.id}>
-              <Link to={`/category/${item.id}`}>{item.name}</Link>
+              <Link to={`/categories/${item._id}`}>{item.name}</Link>
             </li>
           ))}
         </ul>
