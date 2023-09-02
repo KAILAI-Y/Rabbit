@@ -6,8 +6,7 @@ const router = express.Router()
 
 router.get('/', async (req, res) => {
   try {
-    const db = await DB.connect()
-    const banner = await db.collection('banner').find({}).toArray()
+    const banner = await DB.get('banner')
     res.json(banner)
   } catch (error) {
     console.error(error)
@@ -17,11 +16,8 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const id = req.params.id
-    const db = await DB.connect()
-    const banner = await db.collection('banner').findOne({ 
-     _id: new ObjectId(id)
-    })
+    const _id = req.params.id
+    const banner = await DB.get('banner', {_id})
     res.json(banner)
   } catch (error) {
     console.error(error)
@@ -32,8 +28,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const newBanner = req.body
   try {
-    const db = await DB.connect()
-    const result = await db.collection('banner').insertOne(newBanner)
+    const result = await DB.add('categories', newBanner)
     res.json(result)
   } catch (error) {
     console.error(error);
@@ -43,14 +38,9 @@ router.post('/', async (req, res) => {
 
 router.put("/:id", async (req, res) => {
     try {
-        const id = req.params.id
+        const _id = req.params.id
         const data = req.body
-        const db = await DB.connect()
-        const result = await db.collection('banner').findOneAndUpdate(
-            { _id: new ObjectId(id) },
-            { $set: data },
-            { returnDocument: 'after' }
-        )
+        const result = await DB.update('categories', {_id, ...data})
         res.json(result)
     } catch (error) {
         console.error(error);
@@ -60,11 +50,8 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     try {
-        const id = req.params.id
-        const db = await DB.connect()
-        const result = await db.collection('banner').deleteOne(
-            { _id: new ObjectId(id) }
-        )
+        const _id = req.params.id
+        const result = await DB.del('categories', {_id})
         res.json(result)
     } catch (error) {
         console.error(error);

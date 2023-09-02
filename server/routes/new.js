@@ -6,8 +6,7 @@ const router = express.Router()
 
 router.get('/', async (req, res) => {
   try {
-    const db = await DB.connect()
-    const newgood = await db.collection('new').find({}).toArray()
+    const newgood = await DB.get('new')
     res.json(newgood)
   } catch (error) {
     console.error(error)
@@ -17,11 +16,8 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   try {
-    const id = req.params.id
-    const db = await DB.connect()
-    const newgood = await db.collection('new').findOne({ 
-     _id: new ObjectId(id)
-    })
+    const _id = req.params.id
+    const newgood = await DB.get('new', {_id})
     res.json(newgood)
   } catch (error) {
     console.error(error)
@@ -32,8 +28,7 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   const newProduct = req.body
   try {
-    const db = await DB.connect()
-    const result = await db.collection('new').insertOne(newProduct)
+    const result = await DB.add('new', newProduct)
     res.json(result)
   } catch (error) {
     console.error(error);
@@ -43,14 +38,9 @@ router.post('/', async (req, res) => {
 
 router.put("/:id", async (req, res) => {
     try {
-        const id = req.params.id
+        const _id = req.params.id
         const data = req.body
-        const db = await DB.connect()
-        const result = await db.collection('new').findOneAndUpdate(
-            { _id: new ObjectId(id) },
-            { $set: data },
-            { returnDocument: 'after' }
-        )
+        const result = await DB.update('new', {_id, ...data})
         res.json(result)
     } catch (error) {
         console.error(error);
@@ -60,11 +50,8 @@ router.put("/:id", async (req, res) => {
 
 router.delete("/:id", async (req, res) => {
     try {
-        const id = req.params.id
-        const db = await DB.connect()
-        const result = await db.collection('new').deleteOne(
-            { _id: new ObjectId(id) }
-        )
+        const _id = req.params.id
+        const result = await DB.del('new', {_id})
         res.json(result)
     } catch (error) {
         console.error(error);
