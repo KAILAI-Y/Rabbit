@@ -35,7 +35,7 @@ function LayoutFixed() {
         <ul className={styles.app_header_nav}>
           {categoryList && categoryList.map((item) => (
             <li className={styles.home} key={item.id}>
-              <Link to="/">{item.name}</Link>
+              <Link to={`/category/${item.id}`}>{item.name}</Link>
             </li>
           ))}
         </ul>
