@@ -10,8 +10,9 @@ export const Category = {
     get: getCategoryList
 }
 
-async function getBannerList () {
-    const banner_res = await axios.get('http://localhost:3004/banner')
+async function getBannerList (distributionSite = '1') {
+    // const banner_res = await axios.get('http://localhost:3004/banner')
+    const banner_res = await axios.get(`http://localhost:3004/banner?distributionSite=${distributionSite}`);
     return banner_res && banner_res.data
 }
 
